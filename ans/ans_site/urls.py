@@ -9,6 +9,7 @@ urlpatterns = [
   path('logout', LogoutView.as_view(), name="logout"),
   path('register', RegisterView.as_view(), name="register"),
   path('update_profile', UpdateProfileView.as_view(), name="update_profile"),
+  path('api_docs', APIDocsView.as_view(), name="api_docs"),
 
   path('generate_api_token', generate_api_token, name="gen_api_token"),
 ]

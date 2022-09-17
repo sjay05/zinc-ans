@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views import View 
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate
+from ans_site.models import *
 
 class HomeView(View):
   context = {}
@@ -41,3 +42,11 @@ class UpdateProfileView(View):
       user.ansuser.save()
 
     return redirect("update_profile")
+
+class APIDocsView(View):
+  template_name, context = "api_docs.html", {}
+
+  def get(self, request, *args, **kwargs):
+    docs = APIDocs.objects.all()[0]
+    self.context['description'] = docs.content
+    return render(request, self.template_name, self.context)

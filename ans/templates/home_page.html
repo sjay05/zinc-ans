@@ -71,16 +71,16 @@
                   </a>
               </li>
               {% endif %}
-              {% if user.ansuser.is_enterprise %}
+              <!-- {% if user.ansuser.is_enterprise %}
               <li class="nav-item active">
                 <a class="nav-link n-link">
                   Resolve Address
                 </a>
               </li>
-              {% endif %}
+              {% endif %} -->
             {% endif %}
             <li class="nav-item active">
-                <a class="nav-link n-link">
+                <a class="nav-link n-link" href="{% url 'api_docs' %}">
                   API
                 </a>
             </li>
