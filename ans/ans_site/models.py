@@ -22,4 +22,6 @@ class ANSUser(models.Model):
 class APIDocs(models.Model):
   content = MDTextField()
 
+
+
 # Create your models here.

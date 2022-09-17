@@ -60,7 +60,7 @@
         <ul class="navbar-nav mr-auto">
            {% if user.is_authenticated %}
               <li class="nav-item active">
-                  <a class="nav-link n-link">
+                  <a class="nav-link n-link" href="{% url 'update_profile' %}">
                     Update Profile
                 </a>
               </li>

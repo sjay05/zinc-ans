@@ -1,0 +1,78 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+<!-- <div class="container" style="margin-top: 50px;">
+    <p style="text-align: center; font-size: 30px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        Create a Shop:
+    </p>
+</div> -->
+
+<div class="container" style="width: 1000px; padding-top: 30px; font-size: 17px;"> 
+    <div class="card">
+    <div class="card-header" style="font-size: 19px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+        <b>Edit Profile:</b>
+    </div>
+    <form method="post" validate style="padding-top: 20px;padding-left: 30px; padding-right: 30px;">
+        {% csrf_token %}
+        <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput">Alphanumeric User ID:</label>
+          <input type="text" id="alpha_uid" class="form-control" value={{ user.ansuser.user_uid }}>
+        </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address:</label>
+          <input type="email" class="form-control" name="email" id="exampleFormControlInput1" value={{ user.email }}>
+        </div>
+        {% if user.ansuser.is_home_owner %}
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Address:</label>
+          <input type="text" class="form-control" name="address" id="exampleFormControlInput1" value="{{ address }}">
+        </div>
+        {% endif %} 
+        {% if user.ansuser.is_enterprise %}
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Enterprise Name:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="enterprise_name" value={{ user.ansuser.enterprise_name }}>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">API Token:</label>
+          <!-- <input type="text" class="form-control" id="exampleFormControlInput1"> -->
+        </div>
+        <div class="form-group form-inline">
+          <label for="inputPassword2" class="sr-only">Password</label>
+          <input type="text" class="form-control" id="api_token_id" name="api_token" style="margin-top: -20px; width: 400;" value="Hidden" disabled> 
+          <button type="button" onclick="save_to_clip()" class="btn btn-outline-dark mb-2" style="margin-left: 15px; margin-top: -10px;">Copy</button>
+          <button type="button" onclick="get_token()" class="btn btn-outline-danger mb-2" style="margin-left: 15px; margin-top: -10px;">Regenerate</button>
+        </div>
+        {% endif %}
+
+        <div style="padding-top: 12px;">
+        <button type="submit" class="btn btn-outline-dark mb-2" style="font-size: 16px;">Update Profile</button>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+  function save_to_clip() {
+    var copyText = document.getElementById("api_token_id");
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value);
+  }
+  function get_token() {
+    $.ajax({
+      url: "generate_api_token",
+      data: {
+        "usrname": '{{ user.username }}'
+      },
+      dataType: 'json',
+      success: function (data) {
+        document.getElementById("api_token_id").value = data.token;
+      }
+    });
+  }
+</script>
+
+{% endblock %}

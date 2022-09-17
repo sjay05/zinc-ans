@@ -42,7 +42,7 @@ class RegisterView(View):
         messages.info(request, "Username Taken")
         return redirect('register')
       else:
-        user = User.objects.create_user(username = username, password = pwd)
+        user = User.objects.create_user(username = username, password = pwd, email = email)
         user.save()
         alphanumeric_id = get_random_string(length=32)
         while ANSUser.objects.filter(user_uid = alphanumeric_id).exists():

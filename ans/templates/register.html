@@ -38,11 +38,16 @@
                     <a style="color: red"> *</a></label>
                 <input type="password" class="form-control" name="password2" required>
             </div>
-            <select class="form-select" name="account_type" aria-label="account_type" style="margin-top: 30px;" required>
-              <option selected>Account Type</option>
-              <option value="enterprise">Enterprise Account</option>
-              <option value="home_owner">Home Owner</option>
-            </select> 
+            <div class="form-group">
+                <label for="account_type">Account Type:
+                    <a style="color: red"> *</a></label>
+                <select class="form-select" name="account_type" aria-label="account_type" style="" required>
+                    <option value="" selected disabled hidden>Choose Type</option>
+                    <option value="enterprise">Enterprise Account</option>
+                    <option value="home_owner">Home Owner</option>
+                </select> 
+            </div>
+                
             <div class="text-center" style="margin-top: 30px;">
               <button type="submit" class="btn btn-primary">Register!</button>
             </div>

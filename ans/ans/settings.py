@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ['localhost', '10.33.133.20']
 INSTALLED_APPS = [
     'ans_site',
     'mdeditor',
+    'rest_framework',
+    'rest_framework.authtoken',
+    # 'rest_framework.authtoken'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
