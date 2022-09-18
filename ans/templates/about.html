@@ -1,0 +1,24 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+{% include 'mdeditor.html' %}
+
+<div class="container text-center">
+  <div class="card d-flex justify-content-center" style="margin-top: 50px; width: 1260px; margin-left: 30px;">
+    <div> <div id="content" style="font-family: 'Lucida Grande'"><textarea>{{ description }}</textarea></div></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<style>
+  p { font-size: 16px; }
+
+  L0::marker {
+    display: none;
+  }
+</style>
+{% endblock %}

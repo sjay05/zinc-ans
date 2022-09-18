@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+import firebase_admin
+from firebase_admin import credentials
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,6 +28,9 @@ SECRET_KEY = 'django-insecure-beeews!alwxf7932)wako5usqhe!1mrwc8@*hjd3-3=_46rfla
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+firebase_cred = credentials.Certificate("/Users/sanjay/dev/zinc-ans/ans/certificate/fcmtest-bf4a4-firebase-adminsdk-r3409-1c0be32f9f.json")
+firebase_admin.initialize_app(firebase_cred)
 
 ALLOWED_HOSTS = ['localhost', '10.33.133.20']
 

@@ -1,2 +1,5 @@
 env/
 requirements.txt
+*.sqlite3
+designs.md
+certificate/

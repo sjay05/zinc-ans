@@ -34,7 +34,7 @@
         {% if user.ansuser.is_enterprise %}
         <div class="form-group">
           <label for="exampleFormControlInput1">Enterprise Name:</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="enterprise_name" value={{ user.ansuser.enterprise_name }}>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="enterprise_name" value="{{ enterprise_name }}">
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">API Token:</label>

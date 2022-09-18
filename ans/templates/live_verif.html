@@ -1,0 +1,143 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+<div class="container" style="width: 1000px; padding-top: 30px; font-size: 17px;"> 
+    <div class="card">
+    <div class="card-header" style="font-size: 19px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+        <b>Pending Enterprise Requests:</b>
+    </div>
+
+    <div class="card-body">
+    <div class="table-responsive">
+      <style>
+        th {
+          font-weight: 300;
+        }
+      </style>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="font-weight:bold; width:300px;">Email</th>
+          <th scope="col" style="font-weight:bold; width: 420px;">Company</th>
+          <th scope="col" style="font-weight:bold">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for user in pending_enterprises %}
+      <tr>
+        <th>{{user.email}}</th>
+        <th>{{user.ansuser.enterprise_name}}</th>
+        <td>
+        <form method="POST" style="display: inline;">
+          {% csrf_token %}
+          <input type="hidden" name="push_type" value="pending-trust">
+          <input type="hidden" name="obj_id" value="{{ user.ansuser.enterprise_name }}">
+          <button type="submit" class="btn btn-outline-success">Trust</button>
+        </form>
+        <form method="POST" style="display: inline;">
+          {% csrf_token %}
+          <input type="hidden" name="push_type" value="pending-block">
+          <input type="hidden" name="obj_id" value="{{ user.ansuser.enterprise_name }}">
+          <button type="submit" class="btn btn-outline-danger">Do Not Trust</button>
+        </form>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+  </div>
+  <br><br>
+  <div class="card">
+    <div class="card-header" style="font-size: 19px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+        <b>Trusted Enterprises:</b>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <style>
+          th {
+            font-weight: 300;
+          }
+        </style>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="font-weight:bold; width:300px;">Email</th>
+            <th scope="col" style="font-weight:bold; width: 480px;">Company</th>
+            <th scope="col" style="font-weight:bold">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for user in trusted_enterprises %}
+        <tr>
+          <th>{{user.email}}</th>
+          <th>{{user.ansuser.enterprise_name}}</th>
+          <td>
+          <form method="POST" style="display: inline;">
+            {% csrf_token %}
+            <input type="hidden" name="push_type" value="trusted-block">
+            <input type="hidden" name="obj_id" value="{{ user.ansuser.enterprise_name }}">
+            <button type="submit" class="btn btn-outline-danger">Do Not Trust</button>
+          </form>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+      </div>
+  </div>
+  <br><br>
+  <div class="card">
+    <div class="card-header" style="font-size: 19px; text-align: center; padding-top: 15px; padding-bottom: 15px;">
+        <b>Blocked Enterprises:</b>
+    </div>
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <style>
+            th {
+              font-weight: 300;
+            }
+          </style>
+    
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" style="font-weight:bold; width:300px;">Email</th>
+              <th scope="col" style="font-weight:bold; width: 540px;">Company</th>
+              <th scope="col" style="font-weight:bold">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for user in blocked_enterprises %}
+          <tr>
+            <th>{{user.email}}</th>
+            <th>{{user.ansuser.enterprise_name}}</th>
+            <td>
+            <form method="POST" style="display: inline;">
+              {% csrf_token %}
+              <input type="hidden" name="push_type" value="blocked-trust">
+              <input type="hidden" name="obj_id" value="{{user.ansuser.enterprise_name}}">
+              <button type="submit" class="btn btn-outline-success">Trust</button>
+            </form>
+            </td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        </div>
+        </div> 
+  </div>
+</div>
+
+<br<br><br><br><br><br>>
+
+
+{% endblock %}

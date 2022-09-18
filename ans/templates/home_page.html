@@ -58,6 +58,11 @@
 
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link n-link" href="{% url 'about' %}">
+              About
+            </a>
+          </li>
            {% if user.is_authenticated %}
               <li class="nav-item active">
                   <a class="nav-link n-link" href="{% url 'update_profile' %}">
@@ -66,7 +71,7 @@
               </li>
               {% if user.ansuser.is_home_owner %}
               <li class="nav-item active">
-                  <a class="nav-link n-link">
+                  <a class="nav-link n-link" href="{% url 'live_verif' %}">
                     Manage Verifications
                   </a>
               </li>
