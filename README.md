@@ -1,3 +1,7 @@
+# Zinc - ANS (Address Naming Service)
+
+![Zinc](https://i.ibb.co/h1MgGqP/Screen-Shot-2022-09-17-at-10-57-48-PM.png)
+
 ## Inspiration
 
 Relocation/moving is a messy, frenetic process. When moving from address A to B,  the ultimate task of notifying people and companies of a new address stands in the way of all. For example, [moving.com](https://www.moving.com/tips/change-address-checklist-who-to-notify-when-you-move) lists 19 companies you must inform, which includes the post office, tax agencies and banks. This process is tedious, and if you miss something vital, this could lead to missed bills or other serious consequences.
