@@ -16,6 +16,10 @@ Relocation/moving is a messy, frenetic process. When moving from address A to B,
 
 Zinc - ANS (Server Side) was built with Django and Django REST Framework, alongside an Android Flutter Application integrated with Firebase Cloud Messaging. A Flask server was also used to mimic an enterprises's, who's servers will be actively listening for a webhook from ANS upon address change.
 
+## Architecture Diagram
+
+![ZincA](https://i.ibb.co/sF9LdsS/Screen-Shot-2022-11-12-at-9-30-51-AM.png)
+
 ## Challenges we ran into
 
 1. Firebase Cloud Messaging: Push-notification pop-ups not working, emulator not connecting to firebase, notifications coming after a unusual period of time 

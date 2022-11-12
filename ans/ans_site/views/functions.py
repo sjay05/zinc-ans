@@ -48,7 +48,7 @@ class UpdateProfileView(View):
         user.ansuser.address = data.get("address")
         user.ansuser.save()
         call_back_url = "http://127.0.0.1:5000/ans_callback"
-        json_str = '{' + f'"msg": "Address Change Alert", "{user.ansuser.user_uid}": "Rodgers", "address": "{user.ansuser.address}"' + '}'
+        json_str = '{' + f'"msg": "Address Change Alert", "User": "{user.ansuser.user_uid}", "address": "{user.ansuser.address}"' + '}'
         json_obj = json.loads(json_str)
         hook_send = requests.post(call_back_url, json = json_obj)
     
